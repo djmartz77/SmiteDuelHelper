@@ -79,7 +79,11 @@ def createsession(game, platform='PC', response_format='json'):
 
 def gethirezserverstatus(session):
 	# Function returns UP/DOWN status for the primary gmae/platform environments. Data is cached once a minute
-	return None # will return status object 
+	return None # will return status object of some kind
+
+def getdataused(session):
+	# Returns API Developer daily usage limits and the current status against those limits
+	return None # will return status object of some kind
 
 print(ping('SMITE','PC','json'))
 
