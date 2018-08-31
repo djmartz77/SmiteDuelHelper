@@ -6,6 +6,7 @@ from urllib.request import urlopen
 import urllib.error
 import json
 import hashlib
+import time
 
 dev_id = '2424'
 auth_key = 'CC2DB36A40E9483D9EDD13AAC5CE566A'
@@ -62,12 +63,23 @@ def base_url(game, platform):
 
 def ping (game, platform='PC', response_format='json'):
 	if validate_endpoint_settings(game, platform, response_format):
-		url = base_url(game, platform) + '/ping' + response_format.lower() 
+		url = base_url(game, platform) + '/ping' + response_format.lower()
 		doc = urlopen(url)
 		html = doc.read()
 		return html
 	else:
 		return None
+
+def get_timestamp():
+	return time.strftime("%Y%m%d%H%M%S", time.gmtime())
+
+def get_signature(method_name, timestamp):
+	# returns a signature hash
+	signature = hashlib.md5()
+	hash_string = dev_id + "createsession" + auth_key + timestamp
+	signature.update(hash_string.encode())
+	print(signature.hexdigest())
+	return signature.hexdigest()
 
 def testsession(session):
 	# A means of validating that a session is established
@@ -75,7 +87,19 @@ def testsession(session):
 
 def createsession(game, platform='PC', response_format='json'):
 	# A required step to Authenticate the developerId/signature for further API use
-	return None # will return a session or None
+	method_name = "createsession"
+	UTC_timestamp = get_timestamp()
+	signature = get_signature(method_name, UTC_timestamp)
+	url = base_url(game, platform) + '/' + method_name + response_format.lower() + '/' + dev_id + '/' + signature + '/' + UTC_timestamp
+
+	try:
+		doc = urlopen(url)
+	except:
+		return None
+	
+	json_string = doc.read()
+	session_id = json.loads(json_string)['session_id']
+	return session_id # will return a session or None
 
 def gethirezserverstatus(session):
 	# Function returns UP/DOWN status for the primary gmae/platform environments. Data is cached once a minute
@@ -86,4 +110,4 @@ def getdataused(session):
 	return None # will return status object of some kind
 
 print(ping('SMITE','PC','json'))
-
+print(createsession('SMITE', 'PC', 'json'))
