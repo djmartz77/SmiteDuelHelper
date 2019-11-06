@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main role="main" class="container">
+  <div class="row mb-3 god-selectors">
+    <div class="col-md-12 themed-grid-col">
+      <select class="god-selector" placeholder="Select opponent's god">
+        <option>God List Goes Here</option>
+        {% for god in godlist %}
+          <option>{{godlist.god}}</option>
+        {% endfor %}
+      </select>
+      </div>
+  </div>
+
+  <div class="row mb-3 build-labels">
+    <div class="col-md-2 themed-grid-col">
+      [PLAYER NAME]
+    </div>
+    <div class="col-md-7 themed-grid-col main-relic-label">
+      Build
+    </div>
+    <div class="col-md-3 themed-grid-col alternate-relic-label">
+      Relics
+    </div>
+  </div>
+  <div class="build">
+    <div class="row mb-3">
+      <div class="col-md-2 themed-grid-col opponent">
+        Opponent <img src="{% static 'images/smallPlaceholder.JPG' %}">
+      </div>
+      <div class="col-md-7 themed-grid-col">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+      </div>
+      <div class="col-md-3 themed-grid-col">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

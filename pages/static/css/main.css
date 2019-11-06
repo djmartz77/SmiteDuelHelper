@@ -1,0 +1,45 @@
+body {
+    padding-top: 5rem;
+}
+
+.god-form {
+    padding: 2rem;
+    margin: auto;
+}
+
+.god-selectors {
+
+}
+
+.god-selector {
+    margin: 15px;
+    padding: 2px 10px 3px;
+}
+
+.build-button {
+    margin: auto;
+    padding: 2px 10px 3px;
+    text-align: center;
+}
+
+.build {
+    padding-top: 2rem;
+}
+
+.build-label {
+    text-align: right;
+}
+
+.relic-labels{
+    padding-top: 1rem;
+}
+
+.main-relic-label {
+}
+
+.alternate-relic-label{
+}
+
+.relic-row-label{
+    text-align: right;
+}

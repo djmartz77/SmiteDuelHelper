@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main role="main" class="container">
+
+  <form class="god-form">
+    <div class="row mb-3 god-selectors">
+      <div class="col-md-2 themed-grid-col"></div>
+      <div class="col-md-8 themed-grid-col">
+        <select class="god-selector" placeholder="Select your god">
+          <option>God List Goes Here</option>
+          {% for god in godlist %}
+            <option>{{godlist.god}}</option>
+          {% endfor %}
+        </select>
+        <select class="god-selector" placeholder="Select opponent's god">
+          <option>God List Goes Here</option>
+          {% for god in godlist %}
+            <option>{{godlist.god}}</option>
+          {% endfor %}
+        </select>
+        </div>
+      <div class="col-md-2 themed-grid-col"></div>
+    </div>
+    <div class="row mb-3 build-button">
+       <div class="col-md-9 themed-grid-col">
+         <button class="build-button">Show me the build for that!</button>
+       </div>
+    </div>
+  </form>
+
+</main>
+  <div class="build">
+    <div class="row mb-3">
+      <div class="col-md-2 themed-grid-col build-label">Build</div>
+      <div class="col-md-8 themed-grid-col">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+      </div>
+      <div class="col-md-2 themed-grid-col"></div>
+    </div>
+    <div class="row mb-3 relic-labels">
+      <div class="col-md-2 themed-grid-col"></div>
+      <div class="col-md-4 themed-grid-col main-relic-label">
+        Main
+      </div>
+      <div class="col-md-4 themed-grid-col alternate-relic-label">
+        Alternate/Situational
+      </div>
+      <div class="col-md-2 themed-grid-col"></div>
+    </div>
+    <div class="row mb-3 relics">
+      <div class="col-md-2 themed-grid-col relic-row-label">Relic Choices</div>
+      <div class="col-md-4 themed-grid-col">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+      </div>
+      <div class="col-md-4 themed-grid-col">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{% static 'images/placeholder.JPG' %}">
+      </div>
+      <div class="col-md-2 themed-grid-col"></div>
+    </div>
+  </div>
+{% endblock content %}
