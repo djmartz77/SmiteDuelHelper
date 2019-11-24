@@ -56,6 +56,17 @@ QUEUES = {
 			}
 		 }
 
+TIER = [
+	"",
+	"Bronze V", "Bronze IV", "Bronze III", "Bronze II", "Bronze I",
+	"Silver V", "Silver IV", "Silver III", "Silver II", "Silver I",
+	"Gold V", "Gold IV", "Gold III", "Gold II", "Gold I",
+	"Platinum V", "Platinum IV", "Platinum III", "Platinum II", "Platinum I",
+	"Diamond V", "Diamond IV", "Diamond III", "Diamond II", "Diamond I",
+	"Masters",
+	"Grandmasters",
+]
+
 def validate_endpoint_settings(game, platform, response_format):
 	if response_format.lower() == 'xml' :
 		print('xml is not supported by',PACKAGE_NAME,'yet')
@@ -201,40 +212,40 @@ def getmatchidsbyqueue(session, game, platform='PC', response_format='json', que
 
 
 
-print(ping('SMITE'))
-print("")
-session = createsession('SMITE', 'PC', 'json')
-print(session)
-# session = '12F465A042F24FA0B525787352E508B3'
-session_active = testsession(session, 'SMITE', 'PC', 'json')
-print(session_active)
-print("")
-
-data_used = getdataused(session, 'SMITE', 'PC', 'json')
-print(data_used)
-print("")
-
-server_status = gethirezserverstatus(session, 'SMITE', 'PC', 'json')
-print(server_status)
-print("")
-
-gods = getgods(session, 'SMITE', 'PC', 'json')
-# print(gods)
-print("")
-
-items = getitems(session, 'SMITE', 'PC', 'json')
-# print(items)
-print("")
-
-leaderboard = getleagueleaderboard(session, 'SMITE', 'PC', 'json', QUEUES['SMITE']['Ranked']['Duel'], '26', '5')
-# print(items)
-print("")
-
-#matchids = getmatchidsbyqueue(session, 'SMITE', 'PC', 'json', QUEUES['SMITE']['Ranked']['Duel'], '20191114', '-1')
-#print(matchids)
-#print("")
-
-match_id = '980611053'
-match = getmatchdetails(session, 'SMITE', match_id)
+# print(ping('SMITE'))
+# print("")
+# session = createsession('SMITE', 'PC', 'json')
+# print(session)
+# # session = '12F465A042F24FA0B525787352E508B3'
+# session_active = testsession(session, 'SMITE', 'PC', 'json')
+# print(session_active)
+# print("")
+#
+# data_used = getdataused(session, 'SMITE', 'PC', 'json')
+# print(data_used)
+# print("")
+#
+# server_status = gethirezserverstatus(session, 'SMITE', 'PC', 'json')
+# print(server_status)
+# print("")
+#
+# gods = getgods(session, 'SMITE', 'PC', 'json')
+# # print(gods)
+# print("")
+#
+# items = getitems(session, 'SMITE', 'PC', 'json')
+# # print(items)
+# print("")
+#
+# leaderboard = getleagueleaderboard(session, 'SMITE', 'PC', 'json', QUEUES['SMITE']['Ranked']['Duel'], '26', '5')
+# # print(items)
+# print("")
+#
+# #matchids = getmatchidsbyqueue(session, 'SMITE', 'PC', 'json', QUEUES['SMITE']['Ranked']['Duel'], '20191114', '-1')
+# #print(matchids)
+# #print("")
+#
+# match_id = '980611053'
+# match = getmatchdetails(session, 'SMITE', match_id)
 # print(match)
 #print("")
