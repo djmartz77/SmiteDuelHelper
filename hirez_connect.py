@@ -205,7 +205,7 @@ print(ping('SMITE'))
 print("")
 session = createsession('SMITE', 'PC', 'json')
 print(session)
-# session = '8F0C4ACDC567485C93180F141F274CD1'
+# session = '12F465A042F24FA0B525787352E508B3'
 session_active = testsession(session, 'SMITE', 'PC', 'json')
 print(session_active)
 print("")
@@ -230,11 +230,11 @@ leaderboard = getleagueleaderboard(session, 'SMITE', 'PC', 'json', QUEUES['SMITE
 # print(items)
 print("")
 
-matchids = getmatchidsbyqueue(session, 'SMITE', 'PC', 'json', QUEUES['SMITE']['Ranked']['Duel'], '20180831', '-1')
-# print(items)
-print("")
+#matchids = getmatchidsbyqueue(session, 'SMITE', 'PC', 'json', QUEUES['SMITE']['Ranked']['Duel'], '20191114', '-1')
+#print(matchids)
+#print("")
 
-match_id = '416810340'
+match_id = '980611053'
 match = getmatchdetails(session, 'SMITE', match_id)
 # print(match)
-print("")
+#print("")

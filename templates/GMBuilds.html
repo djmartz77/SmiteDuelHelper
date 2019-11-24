@@ -5,8 +5,9 @@
 <main role="main" class="container">
   <div class="row mb-3 god-selectors">
     <div class="col-md-12 themed-grid-col">
+      Choose Your God
       <select class="god-selector" placeholder="Select opponent's god">
-        <option>God List Goes Here</option>
+        <option>{{god.name}}</option>
         {% for god in godlist %}
           <option>{{godlist.god}}</option>
         {% endfor %}
@@ -16,7 +17,7 @@
 
   <div class="row mb-3 build-labels">
     <div class="col-md-2 themed-grid-col">
-      [PLAYER NAME]
+      {{player.name}}, {{player.Duel_Tier}}
     </div>
     <div class="col-md-7 themed-grid-col main-relic-label">
       Build
@@ -28,19 +29,20 @@
   <div class="build">
     <div class="row mb-3">
       <div class="col-md-2 themed-grid-col opponent">
-        Opponent <img src="{% static 'images/smallPlaceholder.JPG' %}">
+        <!--Opponent <img src="{% static 'images/smallPlaceholder.JPG' %}">-->
+        Opponent <img src="{{opponent.godIcon_URL}}" height="100px" width="100px">
       </div>
       <div class="col-md-7 themed-grid-col">
-        <img src="{% static 'images/placeholder.JPG' %}">
-        <img src="{% static 'images/placeholder.JPG' %}">
-        <img src="{% static 'images/placeholder.JPG' %}">
-        <img src="{% static 'images/placeholder.JPG' %}">
-        <img src="{% static 'images/placeholder.JPG' %}">
-        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{{build.items.0}}" height="100px" width="100px">
+        <img src="{{build.items.1}}" height="100px" width="100px">
+        <img src="{{build.items.2}}" height="100px" width="100px">
+        <img src="{{build.items.3}}" height="100px" width="100px">
+        <img src="{{build.items.4}}" height="100px" width="100px">
+        <img src="{{build.items.5}}" height="100px" width="100px">
       </div>
       <div class="col-md-3 themed-grid-col">
-        <img src="{% static 'images/placeholder.JPG' %}">
-        <img src="{% static 'images/placeholder.JPG' %}">
+        <img src="{{build.relics.0}}" height="100px" width="100px">
+        <img src="{{build.relics.1}}" height="100px" width="100px">
       </div>
     </div>
   </div>
