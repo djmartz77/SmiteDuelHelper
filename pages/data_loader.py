@@ -12,9 +12,9 @@ true = "true"
 
 def load_data():
     print(hc.ping('SMITE'))
-    # session = hc.createsession('SMITE', 'PC', 'json')
-    # print(session)
-    session = '30FEC4F01F5740B2B9D2E46AB4F3AAC9'
+    session = hc.createsession('SMITE', 'PC', 'json')
+    print(session)
+    # session = '30FEC4F01F5740B2B9D2E46AB4F3AAC9'
     session_active = hc.testsession(session, 'SMITE', 'PC', 'json')
 
     print(session_active)
@@ -43,7 +43,7 @@ def load_data():
         new_item.save()
         print(new_item)
 
-    match_list = json.loads(hc.getmatchidsbyqueue(session, 'SMITE', 'PC', 'json', hc.QUEUES['SMITE']['Ranked']['Duel'], '20191120', '-1'))
+    match_list = json.loads(hc.getmatchidsbyqueue(session, 'SMITE', 'PC', 'json', hc.QUEUES['SMITE']['Ranked']['Duel'], '20191124', '-1'))
     print(f'Match list has {len(match_list)} entries')
     # print(match_list)
     # print("")
@@ -51,7 +51,7 @@ def load_data():
     match_ctr = 0
     for match in match_list:
         match_ctr += 1
-        print(match)
+        # print(match)
         print(f'Loading Match {match_ctr} of {total_matches}: {match["Match"]}')
         if Match.objects.filter(id=match["Match"]).exists():
             continue

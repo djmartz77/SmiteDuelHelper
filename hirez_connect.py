@@ -126,7 +126,7 @@ def  make_api_call(api_call, api_params = [], game='SMITE', platform='PC', respo
 		return None # perhaps an error is more appropriate, but None will do for now
 
 	url = construct_api_url(api_call, api_params, game, platform, response_format)
-	print('make_api_call url', url)
+	# print('make_api_call url', url)
 	try:
 		doc = urlopen(url)
 	except: # I should catch the http response error here
